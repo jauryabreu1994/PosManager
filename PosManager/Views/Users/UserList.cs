@@ -25,9 +25,12 @@ namespace PosManager.Views.Users
             LoadData();
         }
 
-        private void LoadData() 
+        private void LoadData(string filter = "")
         {
-            var list = _dataController.GetList();
+
+            var list = string.IsNullOrEmpty(filter) ?
+                                    _dataController.GetList() :
+                                    _dataController.GetList(filter);
 
             if (list.result)
             {
@@ -119,6 +122,11 @@ namespace PosManager.Views.Users
                 cust.ShowDialog();
             };
             LoadData();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData(txtSearch.Text);
         }
     }
 }

@@ -35,22 +35,15 @@ namespace PosManager.Views.DashBoard
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.dtData = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.charPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartLine = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.dtData)).BeginInit();
+            this.dtData = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.charPie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtData)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dtData
-            // 
-            this.dtData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtData.GridColor = System.Drawing.Color.White;
-            this.dtData.Location = new System.Drawing.Point(3, 352);
-            this.dtData.Name = "dtData";
-            this.dtData.Size = new System.Drawing.Size(620, 165);
-            this.dtData.TabIndex = 12;
             // 
             // charPie
             // 
@@ -86,30 +79,63 @@ namespace PosManager.Views.DashBoard
             this.chartLine.TabIndex = 14;
             this.chartLine.Text = "Chart Line";
             // 
+            // dtData
+            // 
+            this.dtData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dtData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtData.ColumnHeadersHeight = 30;
+            this.dtData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtData.EnableHeadersVisualStyles = false;
+            this.dtData.GridColor = System.Drawing.Color.White;
+            this.dtData.Location = new System.Drawing.Point(3, 352);
+            this.dtData.Name = "dtData";
+            this.dtData.RowHeadersVisible = false;
+            this.dtData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtData.Size = new System.Drawing.Size(620, 165);
+            this.dtData.TabIndex = 15;
+            // 
             // ChartMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Controls.Add(this.dtData);
             this.Controls.Add(this.chartLine);
             this.Controls.Add(this.charPie);
-            this.Controls.Add(this.dtData);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximumSize = new System.Drawing.Size(626, 520);
             this.MinimumSize = new System.Drawing.Size(626, 520);
             this.Name = "ChartMain";
             this.Size = new System.Drawing.Size(626, 520);
-            ((System.ComponentModel.ISupportInitialize)(this.dtData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.charPie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtData)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dtData;
         private System.Windows.Forms.DataVisualization.Charting.Chart charPie;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartLine;
+        private System.Windows.Forms.DataGridView dtData;
     }
 }

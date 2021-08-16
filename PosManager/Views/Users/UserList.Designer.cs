@@ -30,14 +30,16 @@ namespace PosManager.Views.Users
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.dtData = new System.Windows.Forms.DataGridView();
             this.btnUserGroup = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.dtData = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,16 +61,6 @@ namespace PosManager.Views.Users
             this.lblSearch.Size = new System.Drawing.Size(213, 30);
             this.lblSearch.TabIndex = 11;
             this.lblSearch.Text = "Codigo/Descripción:";
-            // 
-            // dtData
-            // 
-            this.dtData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtData.GridColor = System.Drawing.Color.White;
-            this.dtData.Location = new System.Drawing.Point(8, 59);
-            this.dtData.Name = "dtData";
-            this.dtData.Size = new System.Drawing.Size(602, 408);
-            this.dtData.TabIndex = 12;
-            this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
             // 
             // btnUserGroup
             // 
@@ -101,6 +93,7 @@ namespace PosManager.Views.Users
             this.btnSearch.Size = new System.Drawing.Size(35, 35);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnEdit
             // 
@@ -148,13 +141,47 @@ namespace PosManager.Views.Users
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // dtData
+            // 
+            this.dtData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dtData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtData.ColumnHeadersHeight = 30;
+            this.dtData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtData.EnableHeadersVisualStyles = false;
+            this.dtData.GridColor = System.Drawing.Color.White;
+            this.dtData.Location = new System.Drawing.Point(8, 59);
+            this.dtData.Name = "dtData";
+            this.dtData.RowHeadersVisible = false;
+            this.dtData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtData.Size = new System.Drawing.Size(602, 408);
+            this.dtData.TabIndex = 14;
+            this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
+            // 
             // UserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Controls.Add(this.btnUserGroup);
             this.Controls.Add(this.dtData);
+            this.Controls.Add(this.btnUserGroup);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -181,7 +208,7 @@ namespace PosManager.Views.Users
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.DataGridView dtData;
         private System.Windows.Forms.Button btnUserGroup;
+        private System.Windows.Forms.DataGridView dtData;
     }
 }

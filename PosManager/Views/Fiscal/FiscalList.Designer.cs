@@ -30,11 +30,15 @@ namespace PosManager.Views.Fiscals
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiscalList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.dtData = new System.Windows.Forms.DataGridView();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.dtData = new System.Windows.Forms.DataGridView();
             this.dtSequence = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSequence)).BeginInit();
@@ -50,18 +54,6 @@ namespace PosManager.Views.Fiscals
             this.lblSearch.Size = new System.Drawing.Size(314, 30);
             this.lblSearch.TabIndex = 11;
             this.lblSearch.Text = "Configuracion por Tipo de Ncf";
-            // 
-            // dtData
-            // 
-            this.dtData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dtData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtData.GridColor = System.Drawing.Color.White;
-            this.dtData.Location = new System.Drawing.Point(8, 59);
-            this.dtData.Name = "dtData";
-            this.dtData.RowHeadersWidth = 100;
-            this.dtData.Size = new System.Drawing.Size(602, 162);
-            this.dtData.TabIndex = 12;
-            this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
             // 
             // btnEdit
             // 
@@ -109,16 +101,72 @@ namespace PosManager.Views.Fiscals
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // dtData
+            // 
+            this.dtData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dtData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtData.ColumnHeadersHeight = 30;
+            this.dtData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtData.EnableHeadersVisualStyles = false;
+            this.dtData.GridColor = System.Drawing.Color.White;
+            this.dtData.Location = new System.Drawing.Point(8, 56);
+            this.dtData.Name = "dtData";
+            this.dtData.RowHeadersVisible = false;
+            this.dtData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtData.Size = new System.Drawing.Size(602, 165);
+            this.dtData.TabIndex = 14;
+            this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
+            // 
             // dtSequence
             // 
-            this.dtSequence.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dtSequence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtSequence.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtSequence.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dtSequence.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtSequence.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtSequence.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtSequence.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtSequence.ColumnHeadersHeight = 30;
+            this.dtSequence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtSequence.EnableHeadersVisualStyles = false;
             this.dtSequence.GridColor = System.Drawing.Color.White;
-            this.dtSequence.Location = new System.Drawing.Point(8, 227);
+            this.dtSequence.Location = new System.Drawing.Point(8, 230);
             this.dtSequence.Name = "dtSequence";
-            this.dtSequence.RowHeadersWidth = 100;
-            this.dtSequence.Size = new System.Drawing.Size(602, 240);
-            this.dtSequence.TabIndex = 13;
+            this.dtSequence.RowHeadersVisible = false;
+            this.dtSequence.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dtSequence.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtSequence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtSequence.Size = new System.Drawing.Size(602, 237);
+            this.dtSequence.TabIndex = 15;
             this.dtSequence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSequence_CellClick);
             // 
             // FiscalList
