@@ -224,6 +224,7 @@ namespace PosManager.Views.Users
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(201, 25);
             this.cmbGender.TabIndex = 12;
+            this.cmbGender.SelectedIndexChanged += new System.EventHandler(this.cmbGender_SelectedIndexChanged);
             // 
             // cmbUserGroup
             // 

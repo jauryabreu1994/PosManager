@@ -85,7 +85,7 @@ namespace PosManager.Views.Customers
                     }
                 }
                 else 
-                    MessageBox.Show("Debe seleccionar un cliente Cliente");
+                    MessageBox.Show("Debe seleccionar un Cliente");
             }
             catch (Exception ex)
             {

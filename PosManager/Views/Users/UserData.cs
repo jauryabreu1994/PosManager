@@ -103,5 +103,10 @@ namespace PosManager.Views.Users
                 Close();
             }
         }
+
+        private void cmbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

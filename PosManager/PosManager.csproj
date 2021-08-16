@@ -33,18 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\repos\PosLibrary\PosLibrary\bin\Debug\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\FinalProject\PosLibrary\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\..\..\..\..\repos\PosLibrary\PosLibrary\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\FinalProject\PosLibrary\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="HashLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HashLib.2.0.1\lib\net40\HashLib.dll</HintPath>
     </Reference>
     <Reference Include="PosLibrary">
-      <HintPath>..\..\..\..\..\..\repos\PosLibrary\PosLibrary\bin\Debug\PosLibrary.dll</HintPath>
+      <HintPath>..\..\FinalProject\PosLibrary\bin\Debug\PosLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -116,11 +115,35 @@
     <Compile Include="Views\Fiscal\FiscalList.Designer.cs">
       <DependentUpon>FiscalList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Items\ItemData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\ItemData.Designer.cs">
+      <DependentUpon>ItemData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\ItemDepartmentData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\ItemDepartmentData.Designer.cs">
+      <DependentUpon>ItemDepartmentData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\ItemTaxData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\ItemTaxData.Designer.cs">
+      <DependentUpon>ItemTaxData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Items\ItemList.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Items\ItemList.Designer.cs">
       <DependentUpon>ItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\ItemDiscountData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\ItemDiscountData.Designer.cs">
+      <DependentUpon>ItemDiscountData.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Users\GroupPermissionData.cs">
       <SubType>Form</SubType>
@@ -175,8 +198,20 @@
     <EmbeddedResource Include="Views\Fiscal\FiscalList.resx">
       <DependentUpon>FiscalList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\ItemData.resx">
+      <DependentUpon>ItemData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\ItemDepartmentData.resx">
+      <DependentUpon>ItemDepartmentData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\ItemTaxData.resx">
+      <DependentUpon>ItemTaxData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Items\ItemList.resx">
       <DependentUpon>ItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\ItemDiscountData.resx">
+      <DependentUpon>ItemDiscountData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Users\GroupPermissionData.resx">
       <DependentUpon>GroupPermissionData.cs</DependentUpon>
@@ -226,6 +261,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="Views\Vendors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

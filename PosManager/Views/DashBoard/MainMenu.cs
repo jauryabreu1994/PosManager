@@ -3,7 +3,7 @@ using HashLib;
 using PosManager.Controller;
 using PosManager.Views.Customers;
 using PosManager.Views.Fiscals;
-using PosManager.Views.Item;
+using PosManager.Views.Items;
 using PosManager.Views.Users;
 using System.Text;
 using System.Windows.Forms;
