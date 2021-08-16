@@ -5,6 +5,7 @@ using PosManager.Views.Customers;
 using PosManager.Views.Fiscals;
 using PosManager.Views.Items;
 using PosManager.Views.Users;
+using PosManager.Views.Vendors;
 using System.Text;
 using System.Windows.Forms;
 
@@ -84,6 +85,12 @@ namespace PosManager.Views.DashBoard
         {
             this.panelView.Controls.Clear();
             this.panelView.Controls.Add(new FiscalList());
+        }
+
+        private void btnVendor_Click(object sender, System.EventArgs e)
+        {
+            this.panelView.Controls.Clear();
+            this.panelView.Controls.Add(new VendorList());
         }
     }
 }

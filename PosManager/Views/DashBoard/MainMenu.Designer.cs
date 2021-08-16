@@ -212,6 +212,7 @@ namespace PosManager.Views.DashBoard
             this.btnVendor.TabIndex = 4;
             this.btnVendor.Text = "Suplidores";
             this.btnVendor.UseVisualStyleBackColor = false;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
             // 
             // btnCustomer
             // 
