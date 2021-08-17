@@ -82,6 +82,8 @@ namespace PosManager.Views.Fiscals
                 };
                 LoadSequence();
             }
+            else
+                MessageBox.Show("Seleccionar una linea");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

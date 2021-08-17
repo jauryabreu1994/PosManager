@@ -52,7 +52,7 @@ namespace PosManager.Views.Fiscals
             this.lblSearch.Location = new System.Drawing.Point(3, 17);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(314, 30);
-            this.lblSearch.TabIndex = 11;
+            this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Configuracion por Tipo de Ncf";
             // 
             // btnEdit
@@ -66,7 +66,7 @@ namespace PosManager.Views.Fiscals
             this.btnEdit.Location = new System.Drawing.Point(534, 473);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(35, 35);
-            this.btnEdit.TabIndex = 8;
+            this.btnEdit.TabIndex = 4;
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -81,7 +81,7 @@ namespace PosManager.Views.Fiscals
             this.btnDelete.Location = new System.Drawing.Point(575, 473);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(35, 35);
-            this.btnDelete.TabIndex = 7;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -96,7 +96,7 @@ namespace PosManager.Views.Fiscals
             this.btnAdd.Location = new System.Drawing.Point(493, 473);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -132,7 +132,7 @@ namespace PosManager.Views.Fiscals
             this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtData.Size = new System.Drawing.Size(602, 165);
-            this.dtData.TabIndex = 14;
+            this.dtData.TabIndex = 1;
             this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
             // 
             // dtSequence
@@ -166,7 +166,7 @@ namespace PosManager.Views.Fiscals
             this.dtSequence.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtSequence.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtSequence.Size = new System.Drawing.Size(602, 237);
-            this.dtSequence.TabIndex = 15;
+            this.dtSequence.TabIndex = 2;
             this.dtSequence.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSequence_CellClick);
             // 
             // FiscalList

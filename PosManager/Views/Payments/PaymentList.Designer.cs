@@ -1,7 +1,7 @@
 ﻿
-namespace PosManager.Views.Items
+namespace PosManager.Views.Payments
 {
-    partial class ItemList
+    partial class PaymentList
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,13 +31,10 @@ namespace PosManager.Views.Items
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentList));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.dtData = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnUserGroup = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -51,7 +48,7 @@ namespace PosManager.Views.Items
             this.txtSearch.Location = new System.Drawing.Point(222, 18);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(347, 35);
-            this.txtSearch.TabIndex = 1;
+            this.txtSearch.TabIndex = 9;
             // 
             // lblSearch
             // 
@@ -61,7 +58,7 @@ namespace PosManager.Views.Items
             this.lblSearch.Location = new System.Drawing.Point(3, 17);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(213, 30);
-            this.lblSearch.TabIndex = 0;
+            this.lblSearch.TabIndex = 11;
             this.lblSearch.Text = "Codigo/Descripción:";
             // 
             // dtData
@@ -73,7 +70,7 @@ namespace PosManager.Views.Items
             this.dtData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -95,62 +92,8 @@ namespace PosManager.Views.Items
             this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtData.Size = new System.Drawing.Size(602, 408);
-            this.dtData.TabIndex = 3;
+            this.dtData.TabIndex = 12;
             this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.DimGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(270, 473);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 35);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Descuentos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(153, 473);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Impuestos";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnUserGroup
-            // 
-            this.btnUserGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUserGroup.BackColor = System.Drawing.Color.DimGray;
-            this.btnUserGroup.FlatAppearance.BorderSize = 0;
-            this.btnUserGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserGroup.ForeColor = System.Drawing.Color.White;
-            this.btnUserGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnUserGroup.Image")));
-            this.btnUserGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUserGroup.Location = new System.Drawing.Point(8, 473);
-            this.btnUserGroup.Name = "btnUserGroup";
-            this.btnUserGroup.Size = new System.Drawing.Size(139, 35);
-            this.btnUserGroup.TabIndex = 4;
-            this.btnUserGroup.Text = "Departamento";
-            this.btnUserGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUserGroup.UseVisualStyleBackColor = false;
-            this.btnUserGroup.Click += new System.EventHandler(this.btnUserGroup_Click);
             // 
             // btnSearch
             // 
@@ -163,7 +106,7 @@ namespace PosManager.Views.Items
             this.btnSearch.Location = new System.Drawing.Point(575, 18);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 35);
-            this.btnSearch.TabIndex = 2;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -193,7 +136,7 @@ namespace PosManager.Views.Items
             this.btnDelete.Location = new System.Drawing.Point(575, 473);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(35, 35);
-            this.btnDelete.TabIndex = 9;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -208,19 +151,16 @@ namespace PosManager.Views.Items
             this.btnAdd.Location = new System.Drawing.Point(493, 473);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnAdd.TabIndex = 7;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // ItemList
+            // PaymentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnUserGroup);
             this.Controls.Add(this.dtData);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnSearch);
@@ -232,7 +172,7 @@ namespace PosManager.Views.Items
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximumSize = new System.Drawing.Size(626, 520);
             this.MinimumSize = new System.Drawing.Size(626, 520);
-            this.Name = "ItemList";
+            this.Name = "PaymentList";
             this.Size = new System.Drawing.Size(626, 520);
             ((System.ComponentModel.ISupportInitialize)(this.dtData)).EndInit();
             this.ResumeLayout(false);
@@ -249,8 +189,5 @@ namespace PosManager.Views.Items
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.DataGridView dtData;
-        private System.Windows.Forms.Button btnUserGroup;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

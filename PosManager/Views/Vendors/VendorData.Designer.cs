@@ -33,8 +33,6 @@ namespace PosManager.Views.Vendors
             this.lblUser = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -47,6 +45,8 @@ namespace PosManager.Views.Vendors
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUser
@@ -78,44 +78,9 @@ namespace PosManager.Views.Vendors
             this.txtName.Size = new System.Drawing.Size(201, 25);
             this.txtName.TabIndex = 4;
             // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(456, 249);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 44);
-            this.btnSave.TabIndex = 19;
-            this.btnSave.Text = "Guardar";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Brown;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(563, 249);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(94, 44);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // txtCode
             // 
+            this.txtCode.Enabled = false;
             this.txtCode.Location = new System.Drawing.Point(117, 92);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(201, 25);
@@ -130,20 +95,20 @@ namespace PosManager.Views.Vendors
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(117, 196);
+            this.txtAddress.Location = new System.Drawing.Point(117, 185);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(540, 25);
-            this.txtAddress.TabIndex = 18;
+            this.txtAddress.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 204);
+            this.label1.Location = new System.Drawing.Point(31, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 17);
-            this.label1.TabIndex = 17;
+            this.label1.TabIndex = 13;
             this.label1.Text = "Direccion:";
             // 
             // label3
@@ -170,20 +135,20 @@ namespace PosManager.Views.Vendors
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(456, 156);
+            this.txtPhone.Location = new System.Drawing.Point(456, 154);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(201, 25);
-            this.txtPhone.TabIndex = 16;
+            this.txtPhone.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(367, 162);
+            this.label4.Location = new System.Drawing.Point(367, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 17);
-            this.label4.TabIndex = 15;
+            this.label4.TabIndex = 11;
             this.label4.Text = "Telefono:";
             // 
             // txtVatNumber
@@ -191,14 +156,14 @@ namespace PosManager.Views.Vendors
             this.txtVatNumber.Location = new System.Drawing.Point(456, 92);
             this.txtVatNumber.Name = "txtVatNumber";
             this.txtVatNumber.Size = new System.Drawing.Size(201, 25);
-            this.txtVatNumber.TabIndex = 10;
+            this.txtVatNumber.TabIndex = 8;
             // 
             // txtCompany
             // 
             this.txtCompany.Location = new System.Drawing.Point(456, 123);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(201, 25);
-            this.txtCompany.TabIndex = 12;
+            this.txtCompany.TabIndex = 10;
             // 
             // label6
             // 
@@ -208,7 +173,7 @@ namespace PosManager.Views.Vendors
             this.label6.Location = new System.Drawing.Point(369, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
-            this.label6.TabIndex = 11;
+            this.label6.TabIndex = 9;
             this.label6.Text = "Empresa:";
             // 
             // label7
@@ -219,8 +184,44 @@ namespace PosManager.Views.Vendors
             this.label7.Location = new System.Drawing.Point(369, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 17);
-            this.label7.TabIndex = 9;
+            this.label7.TabIndex = 7;
             this.label7.Text = "Cedula:";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Brown;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(563, 249);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(94, 44);
+            this.btnCancel.TabIndex = 16;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(456, 249);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(94, 44);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // VendorData
             // 

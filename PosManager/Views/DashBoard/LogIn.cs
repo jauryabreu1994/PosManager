@@ -8,6 +8,7 @@ namespace PosManager.Views.DashBoard
 {
     public partial class LogIn : Form
     {
+        private GenericController genericController = new GenericController();
         public LogIn()
         {
             InitializeComponent();
@@ -27,8 +28,9 @@ namespace PosManager.Views.DashBoard
                 var response = userController.LogIn(txtUser.Text, txtPass.Text);
                 if (response.result)
                 {
-                    new LoginController().SetCurrentUser((User)response.response);
-                    this.DialogResult = DialogResult.OK;
+                    genericController.SetCurrentUser((User)response.response);
+                    if(genericController.ValidateAccess(PermissionAlias.LoginManager))
+                        this.DialogResult = DialogResult.OK;
                 }
                 else
                     MessageBox.Show(response.message);

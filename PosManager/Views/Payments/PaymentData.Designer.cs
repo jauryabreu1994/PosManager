@@ -1,7 +1,7 @@
 ﻿
-namespace PosManager.Views.Items
+namespace PosManager.Views.Payments
 {
-    partial class ItemData
+    partial class PaymentData
     {
         /// <summary>
         /// Required designer variable.
@@ -29,74 +29,52 @@ namespace PosManager.Views.Items
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemData));
-            this.lblUser = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentData));
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.cmbTax = new System.Windows.Forms.ComboBox();
-            this.cmbDiscount = new System.Windows.Forms.ComboBox();
-            this.cmbVendor = new System.Windows.Forms.ComboBox();
-            this.numPrice = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbPayUp = new System.Windows.Forms.ComboBox();
+            this.cmbPayDown = new System.Windows.Forms.ComboBox();
+            this.cmbNC = new System.Windows.Forms.ComboBox();
+            this.cmbSales = new System.Windows.Forms.ComboBox();
+            this.cmbMain = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(30, 87);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(34, 17);
-            this.lblUser.TabIndex = 1;
-            this.lblUser.Text = "Sku:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(30, 116);
+            this.label2.Location = new System.Drawing.Point(29, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 17);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(117, 113);
-            this.txtName.Multiline = true;
+            this.txtName.Location = new System.Drawing.Point(116, 87);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(201, 59);
-            this.txtName.TabIndex = 4;
-            // 
-            // txtCode
-            // 
-            this.txtCode.Location = new System.Drawing.Point(117, 82);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(201, 25);
-            this.txtCode.TabIndex = 2;
+            this.txtName.Size = new System.Drawing.Size(201, 25);
+            this.txtName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(30, 183);
+            this.label3.Location = new System.Drawing.Point(29, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 17);
+            this.label3.Size = new System.Drawing.Size(88, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Precio:";
+            this.label3.Text = "Pago Menor:";
             // 
             // lblHeader
             // 
@@ -105,102 +83,113 @@ namespace PosManager.Views.Items
             this.lblHeader.ForeColor = System.Drawing.Color.White;
             this.lblHeader.Location = new System.Drawing.Point(27, 23);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(347, 37);
+            this.lblHeader.Size = new System.Drawing.Size(414, 37);
             this.lblHeader.TabIndex = 0;
-            this.lblHeader.Text = "Información del Producto";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(349, 181);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Vendedor:";
+            this.lblHeader.Text = "Información de Medio de Pago";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(349, 152);
+            this.label5.Location = new System.Drawing.Point(334, 152);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 17);
+            this.label5.Size = new System.Drawing.Size(101, 17);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Descuento:";
+            this.label5.Text = "Pago Principal:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(349, 119);
+            this.label6.Location = new System.Drawing.Point(334, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.Size = new System.Drawing.Size(97, 17);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Impuesto:";
+            this.label6.Text = "Disp. para NC:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(349, 90);
+            this.label7.Location = new System.Drawing.Point(334, 90);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 17);
+            this.label7.Size = new System.Drawing.Size(120, 17);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Departamento:";
+            this.label7.Text = "Disp. para Ventas:";
             // 
-            // cmbDepartment
+            // label8
             // 
-            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(456, 84);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(201, 25);
-            this.cmbDepartment.TabIndex = 8;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(29, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 17);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Pago Mayor:";
             // 
-            // cmbTax
+            // cmbPayUp
             // 
-            this.cmbTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTax.FormattingEnabled = true;
-            this.cmbTax.Location = new System.Drawing.Point(456, 116);
-            this.cmbTax.Name = "cmbTax";
-            this.cmbTax.Size = new System.Drawing.Size(201, 25);
-            this.cmbTax.TabIndex = 10;
+            this.cmbPayUp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPayUp.FormattingEnabled = true;
+            this.cmbPayUp.Items.AddRange(new object[] {
+            "No",
+            "Si"});
+            this.cmbPayUp.Location = new System.Drawing.Point(116, 118);
+            this.cmbPayUp.Name = "cmbPayUp";
+            this.cmbPayUp.Size = new System.Drawing.Size(201, 25);
+            this.cmbPayUp.TabIndex = 4;
             // 
-            // cmbDiscount
+            // cmbPayDown
             // 
-            this.cmbDiscount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDiscount.FormattingEnabled = true;
-            this.cmbDiscount.Location = new System.Drawing.Point(456, 147);
-            this.cmbDiscount.Name = "cmbDiscount";
-            this.cmbDiscount.Size = new System.Drawing.Size(201, 25);
-            this.cmbDiscount.TabIndex = 12;
+            this.cmbPayDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPayDown.FormattingEnabled = true;
+            this.cmbPayDown.Items.AddRange(new object[] {
+            "No",
+            "Si"});
+            this.cmbPayDown.Location = new System.Drawing.Point(116, 149);
+            this.cmbPayDown.Name = "cmbPayDown";
+            this.cmbPayDown.Size = new System.Drawing.Size(201, 25);
+            this.cmbPayDown.TabIndex = 6;
             // 
-            // cmbVendor
+            // cmbNC
             // 
-            this.cmbVendor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVendor.FormattingEnabled = true;
-            this.cmbVendor.Location = new System.Drawing.Point(456, 178);
-            this.cmbVendor.Name = "cmbVendor";
-            this.cmbVendor.Size = new System.Drawing.Size(201, 25);
-            this.cmbVendor.TabIndex = 14;
+            this.cmbNC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNC.FormattingEnabled = true;
+            this.cmbNC.Items.AddRange(new object[] {
+            "No",
+            "Si"});
+            this.cmbNC.Location = new System.Drawing.Point(456, 118);
+            this.cmbNC.Name = "cmbNC";
+            this.cmbNC.Size = new System.Drawing.Size(201, 25);
+            this.cmbNC.TabIndex = 10;
             // 
-            // numPrice
+            // cmbSales
             // 
-            this.numPrice.DecimalPlaces = 2;
-            this.numPrice.Location = new System.Drawing.Point(117, 179);
-            this.numPrice.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(201, 25);
-            this.numPrice.TabIndex = 6;
+            this.cmbSales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSales.FormattingEnabled = true;
+            this.cmbSales.Items.AddRange(new object[] {
+            "No",
+            "Si"});
+            this.cmbSales.Location = new System.Drawing.Point(456, 87);
+            this.cmbSales.Name = "cmbSales";
+            this.cmbSales.Size = new System.Drawing.Size(201, 25);
+            this.cmbSales.TabIndex = 8;
+            // 
+            // cmbMain
+            // 
+            this.cmbMain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMain.FormattingEnabled = true;
+            this.cmbMain.Items.AddRange(new object[] {
+            "No",
+            "Si"});
+            this.cmbMain.Location = new System.Drawing.Point(456, 149);
+            this.cmbMain.Name = "cmbMain";
+            this.cmbMain.Size = new System.Drawing.Size(201, 25);
+            this.cmbMain.TabIndex = 12;
             // 
             // btnCancel
             // 
@@ -214,7 +203,7 @@ namespace PosManager.Views.Items
             this.btnCancel.Location = new System.Drawing.Point(563, 249);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 44);
-            this.btnCancel.TabIndex = 16;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -232,67 +221,61 @@ namespace PosManager.Views.Items
             this.btnSave.Location = new System.Drawing.Point(463, 249);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 44);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Guardar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ItemData
+            // PaymentData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(684, 305);
             this.ControlBox = false;
-            this.Controls.Add(this.numPrice);
-            this.Controls.Add(this.cmbVendor);
-            this.Controls.Add(this.cmbDiscount);
-            this.Controls.Add(this.cmbTax);
-            this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbMain);
+            this.Controls.Add(this.cmbSales);
+            this.Controls.Add(this.cmbNC);
+            this.Controls.Add(this.cmbPayDown);
+            this.Controls.Add(this.cmbPayUp);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCode);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblUser);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximumSize = new System.Drawing.Size(690, 311);
             this.MinimumSize = new System.Drawing.Size(690, 311);
-            this.Name = "ItemData";
+            this.Name = "PaymentData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbDepartment;
-        private System.Windows.Forms.ComboBox cmbTax;
-        private System.Windows.Forms.ComboBox cmbDiscount;
-        private System.Windows.Forms.ComboBox cmbVendor;
-        private System.Windows.Forms.NumericUpDown numPrice;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbPayUp;
+        private System.Windows.Forms.ComboBox cmbPayDown;
+        private System.Windows.Forms.ComboBox cmbNC;
+        private System.Windows.Forms.ComboBox cmbSales;
+        private System.Windows.Forms.ComboBox cmbMain;
     }
 }

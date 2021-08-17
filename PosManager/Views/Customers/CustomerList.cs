@@ -18,7 +18,7 @@ namespace PosManager.Views.Customers
 
 
         CustomerController _dataController = new CustomerController();
-        Customer _data = new Customer();
+        Customer _data = null;
         public CustomerList()
         {
             InitializeComponent();
@@ -53,11 +53,16 @@ namespace PosManager.Views.Customers
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            using (CustomerData cust = new CustomerData(_data.Id))
+            if (_data != null)
             {
-                cust.ShowDialog();
-            };
-            LoadData();
+                using (CustomerData cust = new CustomerData(_data.Id))
+                {
+                    cust.ShowDialog();
+                };
+                LoadData();
+            }
+            else
+                MessageBox.Show("Seleccionar una linea");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

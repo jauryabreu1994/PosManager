@@ -1,5 +1,7 @@
 ﻿using PosLibrary.Controller.Customers;
+using PosLibrary.Controller.StoreSetting;
 using PosLibrary.Model.Entities.Customers;
+using PosLibrary.Model.Entities.Enums;
 using System;
 using System.Windows.Forms;
 
@@ -13,6 +15,9 @@ namespace PosManager.Views.Customers
         public CustomerData()
         {
             InitializeComponent();
+            var data = new StoreController().GenerateId(StoreTableType.Customer);
+            if (data.result)
+                txtCode.Text = data.response.ToString();
         }
 
         public CustomerData(int Id)
@@ -27,12 +32,13 @@ namespace PosManager.Views.Customers
             txtCode.Text = _data.CustomerId;
             txtCode.Enabled = false;
             txtName.Text = _data.FirstName;
-            txtLastName.Text = _data.Address;
+            txtLastName.Text = _data.LastName;
             txtCompany.Text = _data.CompanyName;
             dtDate.Value = _data.DateBorn;
             txtEmail.Text = _data.Email;
             txtPhone.Text = _data.Phone;
             txtVatNumber.Text = _data.VatNumber;
+            txtAddress.Text = _data.Address;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

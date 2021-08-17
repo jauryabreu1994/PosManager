@@ -31,11 +31,6 @@ namespace PosManager.Views.DashBoard
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelUser = new System.Windows.Forms.Panel();
-            this.lblInfoUser = new System.Windows.Forms.Label();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.panelView = new System.Windows.Forms.Panel();
             this.btnTransactions = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnFiscal = new System.Windows.Forms.Button();
@@ -44,7 +39,14 @@ namespace PosManager.Views.DashBoard
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnItem = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
+            this.panelUser = new System.Windows.Forms.Panel();
+            this.lblInfoUser = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.picture = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panelView = new System.Windows.Forms.Panel();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnChancePassword = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
@@ -53,6 +55,7 @@ namespace PosManager.Views.DashBoard
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.btnChancePassword);
             this.panel1.Controls.Add(this.btnTransactions);
             this.panel1.Controls.Add(this.btnUser);
             this.panel1.Controls.Add(this.btnFiscal);
@@ -67,69 +70,6 @@ namespace PosManager.Views.DashBoard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(175, 550);
             this.panel1.TabIndex = 0;
-            // 
-            // panelUser
-            // 
-            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelUser.Controls.Add(this.lblInfoUser);
-            this.panelUser.Controls.Add(this.lblUserName);
-            this.panelUser.Controls.Add(this.picture);
-            this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUser.Location = new System.Drawing.Point(0, 0);
-            this.panelUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(175, 182);
-            this.panelUser.TabIndex = 0;
-            // 
-            // lblInfoUser
-            // 
-            this.lblInfoUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblInfoUser.ForeColor = System.Drawing.Color.White;
-            this.lblInfoUser.Location = new System.Drawing.Point(1, 145);
-            this.lblInfoUser.Name = "lblInfoUser";
-            this.lblInfoUser.Size = new System.Drawing.Size(174, 16);
-            this.lblInfoUser.TabIndex = 1;
-            this.lblInfoUser.Text = "Information About User.";
-            this.lblInfoUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.Color.White;
-            this.lblUserName.Location = new System.Drawing.Point(0, 112);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(175, 21);
-            this.lblUserName.TabIndex = 0;
-            this.lblUserName.Text = "User Name";
-            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnExit.BackColor = System.Drawing.Color.Brown;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnExit.Location = new System.Drawing.Point(774, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(27, 30);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // panelView
-            // 
-            this.panelView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.panelView.Location = new System.Drawing.Point(175, 30);
-            this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(626, 520);
-            this.panelView.TabIndex = 0;
             // 
             // btnTransactions
             // 
@@ -158,7 +98,7 @@ namespace PosManager.Views.DashBoard
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.Location = new System.Drawing.Point(0, 506);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(175, 44);
+            this.btnUser.Size = new System.Drawing.Size(136, 44);
             this.btnUser.TabIndex = 8;
             this.btnUser.Text = "Usuarios";
             this.btnUser.UseVisualStyleBackColor = false;
@@ -196,6 +136,7 @@ namespace PosManager.Views.DashBoard
             this.btnPayment.TabIndex = 5;
             this.btnPayment.Text = "Medios de Pago";
             this.btnPayment.UseVisualStyleBackColor = false;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnVendor
             // 
@@ -265,6 +206,44 @@ namespace PosManager.Views.DashBoard
             this.btnDashBoard.UseVisualStyleBackColor = false;
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
+            // panelUser
+            // 
+            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelUser.Controls.Add(this.lblInfoUser);
+            this.panelUser.Controls.Add(this.lblUserName);
+            this.panelUser.Controls.Add(this.picture);
+            this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUser.Location = new System.Drawing.Point(0, 0);
+            this.panelUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(175, 182);
+            this.panelUser.TabIndex = 0;
+            // 
+            // lblInfoUser
+            // 
+            this.lblInfoUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInfoUser.ForeColor = System.Drawing.Color.White;
+            this.lblInfoUser.Location = new System.Drawing.Point(1, 145);
+            this.lblInfoUser.Name = "lblInfoUser";
+            this.lblInfoUser.Size = new System.Drawing.Size(174, 16);
+            this.lblInfoUser.TabIndex = 1;
+            this.lblInfoUser.Text = "Information About User.";
+            this.lblInfoUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.Color.White;
+            this.lblUserName.Location = new System.Drawing.Point(0, 112);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(175, 21);
+            this.lblUserName.TabIndex = 0;
+            this.lblUserName.Text = "User Name";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // picture
             // 
             this.picture.Image = ((System.Drawing.Image)(resources.GetObject("picture.Image")));
@@ -277,12 +256,71 @@ namespace PosManager.Views.DashBoard
             this.picture.TabStop = false;
             this.picture.Click += new System.EventHandler(this.picture_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnExit.BackColor = System.Drawing.Color.Brown;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnExit.Location = new System.Drawing.Point(774, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(27, 30);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // panelView
+            // 
+            this.panelView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.panelView.Location = new System.Drawing.Point(175, 30);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(626, 520);
+            this.panelView.TabIndex = 1;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSetting.BackColor = System.Drawing.Color.Gray;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSetting.Location = new System.Drawing.Point(175, 0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(32, 30);
+            this.btnSetting.TabIndex = 0;
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // btnChancePassword
+            // 
+            this.btnChancePassword.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnChancePassword.BackColor = System.Drawing.Color.Gray;
+            this.btnChancePassword.FlatAppearance.BorderSize = 0;
+            this.btnChancePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChancePassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChancePassword.ForeColor = System.Drawing.Color.White;
+            this.btnChancePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChancePassword.Image")));
+            this.btnChancePassword.Location = new System.Drawing.Point(135, 507);
+            this.btnChancePassword.Name = "btnChancePassword";
+            this.btnChancePassword.Size = new System.Drawing.Size(40, 43);
+            this.btnChancePassword.TabIndex = 3;
+            this.btnChancePassword.UseVisualStyleBackColor = false;
+            this.btnChancePassword.Click += new System.EventHandler(this.btnChancePassword_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(800, 550);
+            this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.panelView);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panel1);
@@ -318,6 +356,8 @@ namespace PosManager.Views.DashBoard
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panelView;
+        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Button btnChancePassword;
     }
 }
 

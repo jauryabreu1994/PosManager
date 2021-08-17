@@ -53,7 +53,7 @@ namespace PosManager.Views.Items
             this.label1.Location = new System.Drawing.Point(27, 221);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 17);
-            this.label1.TabIndex = 17;
+            this.label1.TabIndex = 2;
             this.label1.Text = "Descripción:";
             // 
             // lblHeader
@@ -72,7 +72,7 @@ namespace PosManager.Views.Items
             this.txtName.Location = new System.Drawing.Point(117, 218);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(206, 25);
-            this.txtName.TabIndex = 18;
+            this.txtName.TabIndex = 3;
             // 
             // dtData
             // 
@@ -106,7 +106,7 @@ namespace PosManager.Views.Items
             this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtData.Size = new System.Drawing.Size(622, 140);
-            this.dtData.TabIndex = 24;
+            this.dtData.TabIndex = 1;
             this.dtData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtData_CellClick);
             // 
             // btnAdd
@@ -121,7 +121,7 @@ namespace PosManager.Views.Items
             this.btnAdd.Location = new System.Drawing.Point(30, 249);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(148, 44);
-            this.btnAdd.TabIndex = 22;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Nuevo Descuento";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -139,7 +139,7 @@ namespace PosManager.Views.Items
             this.btnCancel.Location = new System.Drawing.Point(563, 249);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 44);
-            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -157,7 +157,7 @@ namespace PosManager.Views.Items
             this.btnSave.Location = new System.Drawing.Point(463, 249);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 44);
-            this.btnSave.TabIndex = 19;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Guardar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = false;
@@ -171,7 +171,7 @@ namespace PosManager.Views.Items
             this.label2.Location = new System.Drawing.Point(356, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 17);
-            this.label2.TabIndex = 25;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Porcentaje:";
             // 
             // numPercent
@@ -180,7 +180,7 @@ namespace PosManager.Views.Items
             this.numPercent.Location = new System.Drawing.Point(446, 218);
             this.numPercent.Name = "numPercent";
             this.numPercent.Size = new System.Drawing.Size(206, 25);
-            this.numPercent.TabIndex = 26;
+            this.numPercent.TabIndex = 5;
             // 
             // ItemDiscountData
             // 

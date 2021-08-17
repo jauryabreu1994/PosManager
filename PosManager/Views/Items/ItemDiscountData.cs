@@ -58,7 +58,7 @@ namespace PosManager.Views.Items
                 MessageBox.Show(dataResp.message);
             else
             {
-                MessageBox.Show("Grupo de Usuario guardado exitosamente");
+                MessageBox.Show("Descuento guardado exitosamente");
                 CleanData();
                 LoadData();
             }

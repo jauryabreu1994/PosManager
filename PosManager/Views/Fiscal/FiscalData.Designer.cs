@@ -217,7 +217,7 @@ namespace PosManager.Views.Fiscals
             0});
             this.numStart.Name = "numStart";
             this.numStart.Size = new System.Drawing.Size(201, 25);
-            this.numStart.TabIndex = 21;
+            this.numStart.TabIndex = 10;
             // 
             // numNext
             // 
@@ -229,7 +229,7 @@ namespace PosManager.Views.Fiscals
             0});
             this.numNext.Name = "numNext";
             this.numNext.Size = new System.Drawing.Size(201, 25);
-            this.numNext.TabIndex = 22;
+            this.numNext.TabIndex = 12;
             // 
             // numEnd
             // 
@@ -241,7 +241,7 @@ namespace PosManager.Views.Fiscals
             0});
             this.numEnd.Name = "numEnd";
             this.numEnd.Size = new System.Drawing.Size(201, 25);
-            this.numEnd.TabIndex = 23;
+            this.numEnd.TabIndex = 14;
             // 
             // dtStart
             // 
@@ -252,7 +252,7 @@ namespace PosManager.Views.Fiscals
             this.dtStart.MinDate = new System.DateTime(1850, 1, 1, 0, 0, 0, 0);
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(200, 25);
-            this.dtStart.TabIndex = 24;
+            this.dtStart.TabIndex = 6;
             // 
             // btnCancel
             // 

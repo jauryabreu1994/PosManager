@@ -18,7 +18,7 @@ namespace PosManager.Views.Vendors
 
 
         VendorController _dataController = new VendorController();
-        Vendor _data = new Vendor();
+        Vendor _data = null;
         public VendorList()
         {
             InitializeComponent();
@@ -53,11 +53,16 @@ namespace PosManager.Views.Vendors
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            using (VendorData cust = new VendorData(_data.Id))
+            if (_data != null)
             {
-                cust.ShowDialog();
-            };
-            LoadData();
+                using (VendorData cust = new VendorData(_data.Id))
+                {
+                    cust.ShowDialog();
+                };
+                LoadData();
+            }
+            else
+                MessageBox.Show("Seleccionar una linea");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

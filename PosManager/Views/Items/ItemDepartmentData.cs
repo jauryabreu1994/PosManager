@@ -56,7 +56,7 @@ namespace PosManager.Views.Items
                 MessageBox.Show(dataResp.message);
             else
             {
-                MessageBox.Show("Grupo de Departamento guardado exitosamente");
+                MessageBox.Show("Departamento guardado exitosamente");
                 CleanData();
                 LoadData();
             }

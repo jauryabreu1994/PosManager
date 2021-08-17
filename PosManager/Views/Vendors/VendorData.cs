@@ -1,4 +1,6 @@
-﻿using PosLibrary.Controller.Vendors;
+﻿using PosLibrary.Controller.StoreSetting;
+using PosLibrary.Controller.Vendors;
+using PosLibrary.Model.Entities.Enums;
 using PosLibrary.Model.Entities.Vendors;
 using System;
 using System.Windows.Forms;
@@ -13,6 +15,9 @@ namespace PosManager.Views.Vendors
         public VendorData()
         {
             InitializeComponent();
+            var data = new StoreController().GenerateId(StoreTableType.Vendor);
+            if (data.result)
+                txtCode.Text = data.response.ToString();
         }
 
         public VendorData(int Id)
@@ -27,10 +32,11 @@ namespace PosManager.Views.Vendors
             txtCode.Text = _data.VendorId;
             txtCode.Enabled = false;
             txtName.Text = _data.FirstName;
-            txtLastName.Text = _data.Address;
+            txtLastName.Text = _data.LastName;
             txtCompany.Text = _data.CompanyName;
             txtPhone.Text = _data.Phone;
             txtVatNumber.Text = _data.VatNumber;
+            txtAddress.Text = _data.Address;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

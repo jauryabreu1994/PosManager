@@ -88,7 +88,10 @@ namespace PosManager.Views.DashBoard
                 dt.Columns.Add("Cantidad");
 
                 foreach (var item in collection)
-                    dt.Rows.Add(item.Name, item.Items.Count);
+                {
+                    if(item.Items.Count > 0)
+                        dt.Rows.Add(item.Name, item.Items.Count);
+                }
 
                 charPie.DataSource = dt;
                 charPie.Series["Departamento"].XValueMember = "Departamento";

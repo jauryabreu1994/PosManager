@@ -1,26 +1,21 @@
 ﻿using PosLibrary.Controller.Items;
-using PosLibrary.Model.Entities.Items;
-using PosLibrary.Model.Entities.Users;
-using PosManager.Controller;
+using PosLibrary.Controller.Payments;
+using PosLibrary.Model.Entities.Payments;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PosManager.Views.Items
+namespace PosManager.Views.Payments
 {
-    public partial class ItemList : UserControl
+    public partial class PaymentList : UserControl
     {
-        private GenericController genericController = new GenericController();
-        ItemController _dataController = new ItemController();
-        Item _data = null;
-        public ItemList()
+
+
+        PaymentMethodController _dataController = new PaymentMethodController();
+        PaymentMethod _data = null;
+        public PaymentList()
         {
             InitializeComponent();
             LoadData();
@@ -35,16 +30,22 @@ namespace PosManager.Views.Items
 
             if (list.result)
             {
-                List<Item> collection = list.response as List<Item>;
+                List<PaymentMethod> collection = list.response as List<PaymentMethod>;
                 if (collection.Count > 0)
-                    dtData.DataSource = collection.Select(a => new { a.Id, a.Sku, 
-                                                                     a.Name, Price = a.Price.ToString("###,###,##0.00") }).ToList();
+                    dtData.DataSource = collection.Select(a => new
+                    {
+                        a.Id,
+                        Descripcion = a.Name,
+                        Ventas = a.ToSales,
+                        Devoluciones = a.ToReturn,
+                        Principal = a.IsMainTender
+                    }).ToList();
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (ItemData cust = new ItemData()) 
+            using (PaymentData cust = new PaymentData()) 
             {
                 cust.ShowDialog();
             };
@@ -55,7 +56,7 @@ namespace PosManager.Views.Items
         {
             if (_data != null)
             {
-                using (ItemData cust = new ItemData(_data.Id))
+                using (PaymentData cust = new PaymentData(_data.Id))
                 {
                     cust.ShowDialog();
                 };
@@ -71,9 +72,9 @@ namespace PosManager.Views.Items
             {
                 if (_data != null)
                 {
-                    string text = string.Format("Seguro que desea eliminar el producto: {0} --> {1} {2}",
-                                                _data.Sku, _data.Name);
-                    if (MessageBox.Show( text, "producto",
+                    string text = string.Format("Seguro que desea eliminar el medio de pago: {0}",
+                                                _data.Name);
+                    if (MessageBox.Show( text, "Medio de Pago",
                                         MessageBoxButtons.YesNo,
                                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -83,14 +84,14 @@ namespace PosManager.Views.Items
                             MessageBox.Show(dataResp.message);
                         else
                         {
-                            MessageBox.Show("producto Eliminado");
+                            MessageBox.Show("Medio de Pago Eliminado");
                             _data = null;
                             LoadData();
                         }
                     }
                 }
                 else 
-                    MessageBox.Show("Debe seleccionar un producto");
+                    MessageBox.Show("Debe seleccionar un Medio de Pago");
             }
             catch (Exception ex)
             {
@@ -105,10 +106,9 @@ namespace PosManager.Views.Items
                 var line = dtData.Rows[e.RowIndex].DataBoundItem;
                 if (line != null)
                 {
-                    _data = new Item();
+                    _data = new PaymentMethod();
                     _data.Id = (int)line.GetType().GetProperty("Id").GetValue(line, null);
-                    _data.Sku = (string)line.GetType().GetProperty("Sku").GetValue(line, null);
-                    _data.Name = (string)line.GetType().GetProperty("Name").GetValue(line, null);
+                    _data.Name = (string)line.GetType().GetProperty("Descripcion").GetValue(line, null);
                 }
             }
             catch { }
@@ -117,36 +117,6 @@ namespace PosManager.Views.Items
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadData(txtSearch.Text);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (! genericController.ValidateAccess(PermissionAlias.Discount))
-                return;
-            using (ItemDiscountData cust = new ItemDiscountData())
-            {
-                cust.ShowDialog();
-            };
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!genericController.ValidateAccess(PermissionAlias.Tax))
-                return;
-            using (ItemTaxData cust = new ItemTaxData())
-            {
-                cust.ShowDialog();
-            };
-        }
-
-        private void btnUserGroup_Click(object sender, EventArgs e)
-        {
-            if (!genericController.ValidateAccess(PermissionAlias.Group))
-                return;
-            using (ItemDepartmentData cust = new ItemDepartmentData())
-            {
-                cust.ShowDialog();
-            };
         }
     }
 }

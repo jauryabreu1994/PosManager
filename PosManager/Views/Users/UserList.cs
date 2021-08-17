@@ -18,7 +18,7 @@ namespace PosManager.Views.Users
 
 
         UserController _dataController = new UserController();
-        User _data = new User();
+        User _data = null;
         public UserList()
         {
             InitializeComponent();
@@ -62,7 +62,7 @@ namespace PosManager.Views.Users
                 LoadData();
             }
             else
-                MessageBox.Show("Debe seleccionar un usuario");
+                MessageBox.Show("Seleccionar una linea");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

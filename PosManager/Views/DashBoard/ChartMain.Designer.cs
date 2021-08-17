@@ -59,7 +59,7 @@ namespace PosManager.Views.DashBoard
             series1.Name = "Departamento";
             this.charPie.Series.Add(series1);
             this.charPie.Size = new System.Drawing.Size(620, 172);
-            this.charPie.TabIndex = 13;
+            this.charPie.TabIndex = 0;
             this.charPie.Text = "charPie";
             // 
             // chartLine
@@ -76,7 +76,7 @@ namespace PosManager.Views.DashBoard
             series2.Name = "Ventas";
             this.chartLine.Series.Add(series2);
             this.chartLine.Size = new System.Drawing.Size(620, 165);
-            this.chartLine.TabIndex = 14;
+            this.chartLine.TabIndex = 1;
             this.chartLine.Text = "Chart Line";
             // 
             // dtData
@@ -110,7 +110,7 @@ namespace PosManager.Views.DashBoard
             this.dtData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtData.Size = new System.Drawing.Size(620, 165);
-            this.dtData.TabIndex = 15;
+            this.dtData.TabIndex = 2;
             // 
             // ChartMain
             // 

@@ -58,7 +58,7 @@ namespace PosManager.Views.Items
                 MessageBox.Show(dataResp.message);
             else
             {
-                MessageBox.Show("Grupo de Impuesto guardado exitosamente");
+                MessageBox.Show("Impuesto guardado exitosamente");
                 CleanData();
                 LoadData();
             }

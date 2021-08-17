@@ -118,6 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QgOEzAt3gtrzAAAAP1JREFU
+        SEu1lU0OgjAQhTkd3kT2Jm70qBDX/pzAFX6vpYZoS2ea8CWTYOe9maEg7cQ8zwfiRryIISw2IC/xJCai
+        T4sq/ibWnEPSgTzR+kU1eyU0eQ5zE2mj5Y9JSd1SiWoTaaI0y10C7dsWxSbKRUmRYxKe4u8ilyBcwZrP
+        w4LZwLV7oACJqpFoK55AUNvXLWxvHsLalDm2J/8Fg6eJr3gCo6VJW3GB2dLgush9YPRska8JhpaHbGuC
+        cL/XFEFt8vY/GgmzkWtfExbcU7Fm83Cx5+d6kGj3A0cHdA7bhwukjZY/RiV7Yr9Df0mqie7kQcRjrgG8
+        ep6qMRIU77oPd4xAcO0c79wAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -128,17 +139,6 @@
         yGAcjgbVn+kEpm16Kmp1yBskojYDcwXM2vCcuDfcoKzUE/6iAfEY7MI9PBXwCAcwYdNTUYsarHyV3B40
         CtiBD9iw6amoRQ22oGdpoRh7CZmNJqknBA20k7XRQksSQk8QM3Axg3cILUmIBxjZYOi3yBdjc98iST0h
         ukT/Br9mMHjJOvTPYJRD38f/AUhQL/0IXMlAp881VC16uoVPaeuMzXT8HxQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QgOEzAt3gtrzAAAAP1JREFU
-        SEu1lU0OgjAQhTkd3kT2Jm70qBDX/pzAFX6vpYZoS2ea8CWTYOe9maEg7cQ8zwfiRryIISw2IC/xJCai
-        T4sq/ibWnEPSgTzR+kU1eyU0eQ5zE2mj5Y9JSd1SiWoTaaI0y10C7dsWxSbKRUmRYxKe4u8ilyBcwZrP
-        w4LZwLV7oACJqpFoK55AUNvXLWxvHsLalDm2J/8Fg6eJr3gCo6VJW3GB2dLgush9YPRska8JhpaHbGuC
-        cL/XFEFt8vY/GgmzkWtfExbcU7Fm83Cx5+d6kGj3A0cHdA7bhwukjZY/RiV7Yr9Df0mqie7kQcRjrgG8
-        ep6qMRIU77oPd4xAcO0c79wAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

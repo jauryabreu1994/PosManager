@@ -120,6 +120,7 @@ namespace PosManager.Views.Customers
             // 
             // txtCode
             // 
+            this.txtCode.Enabled = false;
             this.txtCode.Location = new System.Drawing.Point(117, 82);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(201, 25);
