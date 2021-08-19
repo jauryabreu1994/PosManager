@@ -2,6 +2,7 @@
 using PosLibrary.Controller.Vendors;
 using PosLibrary.Model.Entities.Items;
 using PosLibrary.Model.Entities.Vendors;
+using PosManager.Controller;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -162,30 +163,74 @@ namespace PosManager.Views.Items
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Item data = new Item()
+            if (ValidateField())
             {
-                Sku = txtCode.Text,
-                Name = txtName.Text,
-                Price = numPrice.Value,
-                ItemDepartmentId = Convert.ToInt32(cmbDepartment.SelectedIndex),
-                ItemDiscountId = Convert.ToInt32(cmbDiscount.SelectedIndex),
-                ItemTaxId = Convert.ToInt32(cmbTax.SelectedIndex),
-                VendorId = Convert.ToInt32(cmbVendor.SelectedIndex),
-                Condition_Status = true,
-                Deleted = false,
-            };
-            data.Id = _data != null ? _data.Id : 0;
+                Item data = new Item()
+                {
+                    Sku = txtCode.Text,
+                    Name = txtName.Text,
+                    Price = numPrice.Value,
+                    ItemDepartmentId = Convert.ToInt32(cmbDepartment.SelectedIndex),
+                    ItemDiscountId = Convert.ToInt32(cmbDiscount.SelectedIndex),
+                    ItemTaxId = Convert.ToInt32(cmbTax.SelectedIndex),
+                    VendorId = Convert.ToInt32(cmbVendor.SelectedIndex),
+                    Condition_Status = true,
+                    Deleted = false,
+                };
+                data.Id = _data != null ? _data.Id : 0;
 
-            var dataResp = _dataController.Save(data);
-            
-            if (!dataResp.result)
-                MessageBox.Show(dataResp.message);
-            else
-            {
-                MessageBox.Show("Producto guardado exitosamente");
-                _data = null;
-                Close();
+                var dataResp = _dataController.Save(data);
+
+                if (!dataResp.result)
+                    MessageBox.Show(dataResp.message);
+                else
+                {
+                    MessageBox.Show("Producto guardado exitosamente");
+                    _data = null;
+                    Close();
+                }
             }
+        }
+        private bool ValidateField()
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                txtName.Focus();
+                return new GenericController().MessageError("El campo Descripcion no puede estar vacio");
+            }
+
+            else if (cmbDiscount.SelectedIndex <= 0)
+            {
+                cmbDiscount.Focus();
+                return new GenericController().MessageError("Debes seleccionar un descuento");
+            }
+
+            else if (cmbDepartment.SelectedIndex <= 0)
+            {
+                cmbDiscount.Focus();
+                return new GenericController().MessageError("Debes seleccionar un departamento");
+            }
+
+            else if (cmbTax.SelectedIndex <= 0)
+            {
+                cmbDiscount.Focus();
+                return new GenericController().MessageError("Debes seleccionar un impuesto");
+            }
+
+            else if (cmbVendor.SelectedIndex <= 0)
+            {
+                cmbDiscount.Focus();
+                return new GenericController().MessageError("Debes seleccionar un suplidor");
+            }
+
+            else if (numPrice.Value < 0 )
+            {
+                numPrice.Focus();
+                return new GenericController().MessageError("El precio no debe ser menor de Cero");
+            }
+            return true;
+
+
         }
     }
 }

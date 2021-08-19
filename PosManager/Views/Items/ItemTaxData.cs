@@ -1,5 +1,6 @@
 ﻿using PosLibrary.Controller.Items;
 using PosLibrary.Model.Entities.Items;
+using PosManager.Controller;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -96,6 +97,24 @@ namespace PosManager.Views.Items
             _data = null;
             txtName.Text = string.Empty;
             numPercent.Value = 0;
+        }
+
+        private bool ValidateField()
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                txtName.Focus();
+                return new GenericController().MessageError("El campo Descripcion no puede estar vacio");
+            }
+
+            else if (numPercent.Value < 0)
+            {
+                numPercent.Focus();
+                return new GenericController().MessageError("El procentaje no debe ser menor de Cero");
+            }
+            return true;
+
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using PosLibrary.Controller.Items;
 using PosLibrary.Model.Entities.Items;
+using PosManager.Controller;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,22 +44,25 @@ namespace PosManager.Views.Items
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ItemDepartment data = new ItemDepartment()
+            if (ValidateField())
             {
-                Name = txtName.Text,
-                Deleted = false,
-            };
-            data.Id = _data != null ? _data.Id : 0;
+                ItemDepartment data = new ItemDepartment()
+                {
+                    Name = txtName.Text,
+                    Deleted = false,
+                };
+                data.Id = _data != null ? _data.Id : 0;
 
-            var dataResp = _dataController.Save(data);
-            
-            if (!dataResp.result)
-                MessageBox.Show(dataResp.message);
-            else
-            {
-                MessageBox.Show("Departamento guardado exitosamente");
-                CleanData();
-                LoadData();
+                var dataResp = _dataController.Save(data);
+
+                if (!dataResp.result)
+                    MessageBox.Show(dataResp.message);
+                else
+                {
+                    MessageBox.Show("Departamento guardado exitosamente");
+                    CleanData();
+                    LoadData();
+                }
             }
         }
 
@@ -91,6 +95,18 @@ namespace PosManager.Views.Items
         {
             _data = null;
             txtName.Text = string.Empty;
+        }
+
+        private bool ValidateField()
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                txtName.Focus();
+                return new GenericController().MessageError("El campo Nombre no puede estar vacio");
+            }
+            return true;
+
+
         }
     }
 }

@@ -44,7 +44,7 @@
     </Reference>
     <Reference Include="PosLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\repos\PosLibrary\PosLibrary\bin\Debug\PosLibrary.dll</HintPath>
+      <HintPath>..\..\FinalProject\PosLibrary\bin\Debug\PosLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

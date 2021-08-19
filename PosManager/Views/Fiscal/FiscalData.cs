@@ -1,5 +1,6 @@
 ﻿using PosLibrary.Controller.Fiscal;
 using PosLibrary.Model.Entities.Fiscal;
+using PosManager.Controller;
 using System;
 using System.Windows.Forms;
 
@@ -72,6 +73,49 @@ namespace PosManager.Views.Fiscals
                 _data = null;
                 Close();
             }
+        }
+
+        private bool ValidateField()
+        {
+            if (string.IsNullOrEmpty(txtSerie.Text))
+            {
+                txtSerie.Focus();
+                return new GenericController().MessageError("El campo Serie no puede estar vacio");
+            }
+
+            else if (string.IsNullOrEmpty(txtNcf.Text))
+            {
+                txtSerie.Focus();
+                return new GenericController().MessageError("El campo Tipo Ncf no puede estar vacio");
+            }
+
+            else if (string.IsNullOrEmpty(txtDescription.Text))
+            {
+                txtDescription.Focus();
+                return new GenericController().MessageError("El campo Descripcion no puede estar vacio");
+            }
+
+            else if (numStart.Value < 0)
+            {
+                numStart.Focus();
+                return new GenericController().MessageError("La Seq. Siguiente no debe ser menor o igual a Cero");
+            }
+
+            else if (numNext.Value < 0)
+            {
+                numNext.Focus();
+                return new GenericController().MessageError("La Seq. Siguiente no debe ser menor o igual a Cero");
+            }
+
+            else if (numEnd.Value < 0)
+            {
+                numNext.Focus();
+                return new GenericController().MessageError("La Seq. Siguiente no debe ser menor o igual a Cero");
+            }
+
+            return true;
+
+
         }
     }
 }

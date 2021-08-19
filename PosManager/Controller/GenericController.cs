@@ -34,5 +34,12 @@ namespace PosManager.Controller
 
             return false;
         }
+
+        protected internal bool MessageError(string msg)
+        {
+            MessageBox.Show(msg, "error", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+            return false;
+        }
     }
 }

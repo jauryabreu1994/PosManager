@@ -1,5 +1,6 @@
 ﻿using PosLibrary.Controller.Items;
 using PosLibrary.Model.Entities.Items;
+using PosManager.Controller;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,23 +45,26 @@ namespace PosManager.Views.Items
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ItemDiscount data = new ItemDiscount()
+            if (ValidateField())
             {
-                Name = txtName.Text,
-                AmountPercent = numPercent.Value,
-                Deleted = false,
-            };
-            data.Id = _data != null ? _data.Id : 0;
+                ItemDiscount data = new ItemDiscount()
+                {
+                    Name = txtName.Text,
+                    AmountPercent = numPercent.Value,
+                    Deleted = false,
+                };
+                data.Id = _data != null ? _data.Id : 0;
 
-            var dataResp = _dataController.Save(data);
-            
-            if (!dataResp.result)
-                MessageBox.Show(dataResp.message);
-            else
-            {
-                MessageBox.Show("Descuento guardado exitosamente");
-                CleanData();
-                LoadData();
+                var dataResp = _dataController.Save(data);
+
+                if (!dataResp.result)
+                    MessageBox.Show(dataResp.message);
+                else
+                {
+                    MessageBox.Show("Descuento guardado exitosamente");
+                    CleanData();
+                    LoadData();
+                }
             }
         }
 
@@ -96,6 +100,24 @@ namespace PosManager.Views.Items
             _data = null;
             txtName.Text = string.Empty;
             numPercent.Value = 0;
+        }
+
+        private bool ValidateField()
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                txtName.Focus();
+                return new GenericController().MessageError("El campo Descripcion no puede estar vacio");
+            }
+
+            else if (numPercent.Value < 0)
+            {
+                numPercent.Focus();
+                return new GenericController().MessageError("El porcentaje no debe ser menor de Cero");
+            }
+            return true;
+
+
         }
     }
 }
