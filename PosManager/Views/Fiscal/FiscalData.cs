@@ -49,29 +49,32 @@ namespace PosManager.Views.Fiscals
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            NcfSequenceDetail data = new NcfSequenceDetail()
+            if (ValidateField())
             {
-                Serie = txtSerie.Text,
-                NcfId = Convert.ToInt32(txtNcf.Text),
-                DGIIDescription = txtDescription.Text,
-                SeqStatus = Convert.ToInt32(txtStatus.Text),
-                DateStart = dtStart.Value,
-                DateEnd = dtEnd.Value,
-                SeqStart = (int)numStart.Value,
-                SeqNext = (int)numNext.Value,
-                SeqEnd = (int)numEnd.Value,
-            };
-            data.Id = _data != null ? _data.Id : 0;
+                NcfSequenceDetail data = new NcfSequenceDetail()
+                {
+                    Serie = txtSerie.Text,
+                    NcfId = Convert.ToInt32(txtNcf.Text),
+                    DGIIDescription = txtDescription.Text,
+                    SeqStatus = Convert.ToInt32(txtStatus.Text),
+                    DateStart = dtStart.Value,
+                    DateEnd = dtEnd.Value,
+                    SeqStart = (int)numStart.Value,
+                    SeqNext = (int)numNext.Value,
+                    SeqEnd = (int)numEnd.Value,
+                };
+                data.Id = _data != null ? _data.Id : 0;
 
-            var dataResp = _dataController.Save(data);
-            
-            if (!dataResp.result)
-                MessageBox.Show(dataResp.message);
-            else
-            {
-                MessageBox.Show("Configuracion fiscal guardada exitosamente");
-                _data = null;
-                Close();
+                var dataResp = _dataController.Save(data);
+
+                if (!dataResp.result)
+                    MessageBox.Show(dataResp.message);
+                else
+                {
+                    MessageBox.Show("Configuracion fiscal guardada exitosamente");
+                    _data = null;
+                    Close();
+                }
             }
         }
 
@@ -80,7 +83,7 @@ namespace PosManager.Views.Fiscals
             if (string.IsNullOrEmpty(txtSerie.Text))
             {
                 txtSerie.Focus();
-                return new GenericController().MessageError("El campo Serie no puede estar vacio");
+                return new GenericController().MessageError("El campo serie no puede estar vacio");
             }
 
             else if (string.IsNullOrEmpty(txtNcf.Text))
@@ -95,22 +98,34 @@ namespace PosManager.Views.Fiscals
                 return new GenericController().MessageError("El campo Descripcion no puede estar vacio");
             }
 
-            else if (numStart.Value < 0)
+            else if (dtStart.Value.Date > DateTime.Now.Date)
+            {
+                dtStart.Focus();
+                return new GenericController().MessageError("La fecha de Inicio no puede ser mayor que el dia actual");
+            }
+
+            else if (dtEnd.Value.Date < dtStart.Value.Date)
+            {
+                dtEnd.Focus();
+                return new GenericController().MessageError("La fecha final no puede ser menor que la fecha de inicio");
+            }
+
+            else if (numStart.Value < 0 & numStart.Value > numNext.Value)
             {
                 numStart.Focus();
-                return new GenericController().MessageError("La Seq. Siguiente no debe ser menor o igual a Cero");
+                return new GenericController().MessageError("La seq. de inicio debe ser mayor a cero y menor que la seq. siguiente");
             }
 
-            else if (numNext.Value < 0)
+            else if (numNext.Value < numStart.Value & numNext.Value > numEnd.Value)
             {
                 numNext.Focus();
-                return new GenericController().MessageError("La Seq. Siguiente no debe ser menor o igual a Cero");
+                return new GenericController().MessageError("La Seq. siguiente debe ser mayor a la seq. de inicio y menor a la seq. fin");
             }
 
-            else if (numEnd.Value < 0)
+            else if (numEnd.Value < numStart.Value & numEnd.Value < numNext.Value)
             {
-                numNext.Focus();
-                return new GenericController().MessageError("La Seq. Siguiente no debe ser menor o igual a Cero");
+                numEnd.Focus();
+                return new GenericController().MessageError("La seq. fin debe ser mayor a la seq. de inicio y de siguiente");
             }
 
             return true;

@@ -98,7 +98,7 @@ namespace PosManager.Views.Customers
 
             else if (dtDate.Value.Date > DateTime.Now.Date)
             {
-                txtLastName.Focus();
+                dtDate.Focus();
                 return new GenericController().MessageError("La fecha de nacimiento debe ser menor al dia actual");
             }
             return true;
