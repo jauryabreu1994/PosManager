@@ -110,22 +110,16 @@ namespace PosManager.Views.Fiscals
                 return new GenericController().MessageError("La fecha final no puede ser menor que la fecha de inicio");
             }
 
-            else if (numStart.Value < 0 & numStart.Value > numNext.Value)
+            else if (numStart.Value > numNext.Value)
             {
                 numStart.Focus();
-                return new GenericController().MessageError("La seq. de inicio debe ser mayor a cero y menor que la seq. siguiente");
+                return new GenericController().MessageError("La seq. de inicio no puede ser mayor que la seq. siguiente");
             }
 
-            else if (numNext.Value < numStart.Value & numNext.Value > numEnd.Value)
+            else if (numNext.Value > numEnd.Value)
             {
                 numNext.Focus();
-                return new GenericController().MessageError("La Seq. siguiente debe ser mayor a la seq. de inicio y menor a la seq. fin");
-            }
-
-            else if (numEnd.Value < numStart.Value & numEnd.Value < numNext.Value)
-            {
-                numEnd.Focus();
-                return new GenericController().MessageError("La seq. fin debe ser mayor a la seq. de inicio y de siguiente");
+                return new GenericController().MessageError("La Seq. siguiente no puede ser mayor a la seq. final");
             }
 
             return true;
