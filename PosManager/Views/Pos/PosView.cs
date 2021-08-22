@@ -1,4 +1,5 @@
-﻿using PosLibrary.Controller.Items;
+﻿using PosLibrary.Controller.Fiscal;
+using PosLibrary.Controller.Items;
 using PosLibrary.Controller.StoreSetting;
 using PosLibrary.Controller.Transactions;
 using PosLibrary.Model.Entities.Customers;
@@ -19,6 +20,8 @@ namespace PosManager.Views.Pos
     public partial class PosView : Form
     {
         private NcfType _ncfType = new NcfType();
+        private NcfTypeController ncfTypeController = new NcfTypeController();
+        private NcfSequenceDetailController detailController = new NcfSequenceDetailController();
         private Customer _customer = new Customer(); 
         private Item _item = new Item();
         private List<TransactionLines> _transactionLines = new List<TransactionLines>();
@@ -33,8 +36,7 @@ namespace PosManager.Views.Pos
         public PosView()
         {
             InitializeComponent();
-            LoadItems();
-            LoadPayments();
+            ClearTransactions();
         }
 
         private void btnExit_Click(object sender, System.EventArgs e)
@@ -112,20 +114,32 @@ namespace PosManager.Views.Pos
             amounts = new decimal[4];
             foreach (var line in _transactionLines)
             {
-                amounts[0] += line.Price * line.Quantity
-                    ;
-                line.TaxAmount = (_ncfType.NcfId != 14) ? CalculateTax(line.Price, line.Item.ItemTax.AmountPercent) : 0;
+
+                amounts[0] += CalculateDiscount(line.Price, line.DiscountPercent) * line.Quantity;
+
+                if (_ncfType.NcfId != 14)
+                {
+                    line.TaxAmount = CalculateTax(CalculateDiscount(line.Price, line.DiscountPercent),
+                                                                    line.Item.ItemTax.AmountPercent)
+                                                                    * line.Quantity;
+                }
+                else
+                    line.TaxAmount = 0;
+
                 amounts[1] += line.TaxAmount;
 
+
                 line.TaxPercent = (_ncfType.NcfId != 14) ? line.Item.ItemTax.AmountPercent : 0;
-                line.TotalAmount = (_ncfType.NcfId != 14) ? (line.Price + line.TaxAmount) * line.Quantity : 
-                                    line.Price * line.Quantity;
+
+                line.TotalAmount = (CalculateDiscount(line.Price, 
+                                    line.DiscountPercent) 
+                                    * line.Quantity) 
+                                    + line.TaxAmount;
 
                 if (line.DiscountPercent != 0)
                 {
-                    decimal discountAmount = CalculateDiscount(line.TotalAmount, line.DiscountPercent);
-                    amounts[2] += line.TotalAmount - discountAmount;
-                    line.TotalAmount = discountAmount;
+                    decimal totalAmount = CalculateTax(line.Price, line.TaxPercent) * line.Quantity;
+                    amounts[2] += totalAmount - line.TotalAmount;
                 }
 
                 amounts[3] += line.TotalAmount;
@@ -258,6 +272,18 @@ namespace PosManager.Views.Pos
 
             else if (_transactionLines.Count > 0)
             {
+                string response = detailController.ValidateNCFSequence(_ncfType.NcfId);
+
+                if (!string.IsNullOrEmpty(response))
+                {
+                    MessageBox.Show(response);
+
+                    var ncfInformation = new NcfSequenceDetailController().GetNcfStatus(_ncfType.NcfId, 0);
+                    
+                    if (ncfInformation.SeqStatus > 1)
+                        return;
+                }
+                    
                 using (PaymentList list = new PaymentList())
                 {
                     list.ShowDialog();
@@ -355,6 +381,30 @@ namespace PosManager.Views.Pos
                         pay.TransactionHeaderId = header.Id;
                     }
                     new TransactionPaymentsController().SaveList(_transactionPayments);
+
+                    var ncfInformation = new NcfSequenceDetailController().GetNcfStatus(_ncfType.NcfId, 1);
+                    NcfHistory ncfHistory = new NcfHistory()
+                    {
+                        NcfNumber = ncfInformation.DGIIDescription,
+                        ReceiptId = header.ReceiptId,
+                        VatNumber = _customer.VatNumber,
+                        Company = _customer.CompanyName,
+                        Condition_Status = true,
+                        CreatedDate = DateTime.Now,
+                        Deleted = false,
+                        Id = 0,
+                        NcfTypeId = _ncfType.NcfId,
+                        ReturnNcfNumber = string.Empty,
+                        ReturnReceiptId = string.Empty,
+                        NcfType = null,
+                        TaxExempt = _ncfType.NcfId == 14 ? true : false,
+                        TotalAmount = amounts[0],
+                        TotalTax = amounts[1],
+                        TotalAmountWithTax = amounts[3],
+                        UpdatedDate = DateTime.Now
+                    };
+
+                    new NcfHistoryController().Save(ncfHistory);
                 }
                 ClearTransactions();
             }
@@ -378,7 +428,8 @@ namespace PosManager.Views.Pos
             LoadItems();
             LoadPayments();
             LoadCalculatePanel();
-
+            _ncfType = (NcfType)ncfTypeController.Get(2).response;
+            NcfSelected();
 
         }
 
