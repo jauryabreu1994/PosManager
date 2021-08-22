@@ -1,9 +1,14 @@
 ﻿using PosLibrary.Controller.Items;
+using PosLibrary.Controller.StoreSetting;
+using PosLibrary.Controller.Transactions;
 using PosLibrary.Model.Entities.Customers;
+using PosLibrary.Model.Entities.Enums;
 using PosLibrary.Model.Entities.Fiscal;
 using PosLibrary.Model.Entities.Items;
 using PosLibrary.Model.Entities.Transactions;
 using PosManager.Controller;
+using PosManager.Views.DashBoard;
+using PosManager.Views.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +25,16 @@ namespace PosManager.Views.Pos
         private List<TransactionPayments> _transactionPayments = new List<TransactionPayments>();
         private GenericController genericController = new GenericController();
         private ItemController itemContoller = new ItemController();
-        private decimal[] amounts = new decimal[5];
+        private decimal[] amounts = new decimal[4];
+        private int paymentRow = 0;
+        private int lineRow = 0;
 
         private string NcfSequence = string.Empty;
         public PosView()
         {
             InitializeComponent();
+            LoadItems();
+            LoadPayments();
         }
 
         private void btnExit_Click(object sender, System.EventArgs e)
@@ -100,7 +109,7 @@ namespace PosManager.Views.Pos
 
         private void  CalculateLines() 
         {
-            amounts = new decimal[5];
+            amounts = new decimal[4];
             foreach (var line in _transactionLines)
             {
                 amounts[0] += line.Price * line.Quantity
@@ -122,13 +131,7 @@ namespace PosManager.Views.Pos
                 amounts[3] += line.TotalAmount;
             }
             LoadItems();
-
-            lblSubTotal.Text = amounts[0].ToString("###,###,##0.00");
-            lblTax.Text = amounts[1].ToString("###,###,##0.00");
-            lblDiscount.Text = amounts[2].ToString("###,###,##0.00");
-            lblTotal.Text = amounts[3].ToString("###,###,##0.00");
-            lblPending.Text = (amounts[3] - amounts[4]).ToString("###,###,##0.00");
-
+            LoadCalculatePanel();
         }
         private void LoadItems()
         {
@@ -163,7 +166,12 @@ namespace PosManager.Views.Pos
 
         private void btnJournal_Click(object sender, System.EventArgs e)
         {
-
+            this.Hide();
+            using (TransactionView trans = new TransactionView())
+            {
+                trans.ShowDialog();
+            }
+            this.Show();
             txtSku.Focus();
         }
 
@@ -193,6 +201,8 @@ namespace PosManager.Views.Pos
 
         private void btnItem_Click(object sender, System.EventArgs e)
         {
+
+            this.Hide();
             using (ItemList item = new ItemList())
             {
                 item.ShowDialog();
@@ -203,6 +213,7 @@ namespace PosManager.Views.Pos
 
                 }
             };
+            this.Show();
         }
 
         private void btnFiscal_Click(object sender, System.EventArgs e)
@@ -221,7 +232,7 @@ namespace PosManager.Views.Pos
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
             using (CustomerList list = new CustomerList())
             {
                 list.ShowDialog();
@@ -232,11 +243,20 @@ namespace PosManager.Views.Pos
 
                 }
             };
+            this.Show();
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            if (_transactionLines.Count > 0)
+
+            string msg = "Debe seleccionar un cliente";
+            if (_customer == null)
+                MessageBox.Show(msg);
+
+            else if (_customer.Id <= 0)
+                MessageBox.Show(msg);
+
+            else if (_transactionLines.Count > 0)
             {
                 using (PaymentList list = new PaymentList())
                 {
@@ -245,14 +265,13 @@ namespace PosManager.Views.Pos
                     {
                         var payment = list.payment;
 
-                        using (PaymentAmount pay = new PaymentAmount(amounts[3] - amounts[4],
+                        using (PaymentAmount pay = new PaymentAmount(amounts[3] - _transactionPayments.Sum(a => a.TotalAmount),
                                                                      payment.OverTender,
                                                                      payment.UnderTender))
                         {
                             pay.ShowDialog();
                             if (pay.DialogResult == DialogResult.OK)
                             {
-                                amounts[4] += pay.amount;
                                 TransactionPayments payments = new TransactionPayments()
                                 {
                                     Id = 0,
@@ -267,7 +286,23 @@ namespace PosManager.Views.Pos
                                 _transactionPayments.Add(payments);
                                 LoadPayments();
 
-                                lblPending.Text = (amounts[3] - amounts[4]).ToString("###,###,##0.00");
+                                decimal totalPayment = _transactionPayments.Sum(a => a.TotalAmount);
+                                decimal amountChange = amounts[3] - totalPayment;
+                                lblPending.Text = (amountChange).ToString("###,###,##0.00");
+
+                                if ((Math.Abs(amounts[3]) - Math.Abs(totalPayment)) <= 0)
+                                {
+
+                                    ConcludeTransactions();
+
+                                    if (amountChange < 0)
+                                    {
+                                        using (AmountChange change = new AmountChange(amountChange))
+                                        {
+                                            change.ShowDialog();
+                                        };
+                                    }
+                                }
                             }
                         };
 
@@ -277,6 +312,194 @@ namespace PosManager.Views.Pos
             else 
             {
                 MessageBox.Show("Sin articulos seleccionados para facturar.");
+            }
+        }
+
+        private void ConcludeTransactions() 
+        {
+            try
+            {
+                TransactionHeaderController transaction = new TransactionHeaderController();
+                TransactionHeader header = new TransactionHeader()
+                {
+                    Id = 0,
+                    ReceiptId = string.Empty,
+                    Condition_Status = true,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                    CustomerId = _customer.Id,
+                    Deleted = false,
+                    TotalAmount = amounts[0],
+                    TaxAmount = amounts[1],
+                    DiscountAmount = amounts[2],
+                    TotalPayment =amounts[3]  
+                };
+
+                var data = new StoreController().GenerateId(StoreTableType.Receipt);
+                if (data.result)
+                    header.ReceiptId = data.response.ToString();
+
+                var transactionResult = transaction.Save(header);
+                if (transactionResult.result)
+                {
+                    foreach (var line in _transactionLines)
+                    {
+                        line.ReceiptId = header.ReceiptId;
+                        line.TransactionHeaderId = header.Id;
+                    }
+                    new TransactionLinesController().SaveList(_transactionLines);
+
+                    foreach (var pay in _transactionPayments)
+                    {
+                        pay.ReceiptId = header.ReceiptId;
+                        pay.TransactionHeaderId = header.Id;
+                    }
+                    new TransactionPaymentsController().SaveList(_transactionPayments);
+                }
+                ClearTransactions();
+            }
+            catch 
+            {
+            
+            }
+        }
+
+        private void ClearTransactions() 
+        {
+            _ncfType = new NcfType();
+            _customer = new Customer();
+            _item = new Item();
+            _transactionLines = new List<TransactionLines>();
+            _transactionPayments = new List<TransactionPayments>();
+            amounts = new decimal[4];
+            txtCustomer.Text = string.Empty;
+            txtFiscal.Text = string.Empty;
+            txtSku.Text = string.Empty;
+            LoadItems();
+            LoadPayments();
+            LoadCalculatePanel();
+
+
+        }
+
+        private void LoadCalculatePanel() 
+        {
+            lblSubTotal.Text = amounts[0].ToString("###,###,##0.00");
+            lblTax.Text = amounts[1].ToString("###,###,##0.00");
+            lblDiscount.Text = amounts[2].ToString("###,###,##0.00");
+            lblTotal.Text = amounts[3].ToString("###,###,##0.00");
+            lblPending.Text = (amounts[3] - _transactionPayments.Sum(a => a.TotalAmount)).ToString("###,###,##0.00");
+        }
+
+        private void dtPayments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                paymentRow = e.RowIndex;
+            }
+            catch { }
+        }
+
+        private void dtPayments_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (_transactionPayments.Count > 0)
+                {
+                    var payment = _transactionPayments[paymentRow];
+
+                    using (DeleteLine delete = new DeleteLine("Desea eliminar el pago:",
+                                                            payment.PaymentMethod.Name,
+                                                            "RD$ " + payment.TotalAmount.ToString("###,###,###")))
+                    {
+                        delete.ShowDialog();
+                        if (delete.DialogResult == DialogResult.OK)
+                        {
+                            _transactionPayments.RemoveAt(paymentRow);
+                            LoadPayments();
+                            LoadCalculatePanel();
+                        };
+                    }
+                }
+            }
+            catch { }
+        }
+
+        private void dtItems_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                lineRow = e.RowIndex;
+            }
+            catch { }
+        }
+
+        private void dtItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (_transactionLines.Count > 0)
+                {
+                    var item = _transactionLines[lineRow];
+
+                    using (SelectItemProcess process = new SelectItemProcess())
+                    {
+                        process.ShowDialog();
+                        if (process.DialogResult == DialogResult.Yes)
+                        {
+
+                            using (DeleteLine delete = new DeleteLine("Desea eliminar el articulo:",
+                                                                    item.Item.Sku,
+                                                                    item.Description))
+                            {
+                                delete.ShowDialog();
+                                if (delete.DialogResult == DialogResult.OK)
+                                {
+                                    _transactionLines.RemoveAt(lineRow);
+                                    LoadPayments();
+                                    CalculateLines();
+                                };
+                            }
+                        }
+                        else if (process.DialogResult == DialogResult.OK) 
+                        {
+                            using (AddQuantity add = new AddQuantity(item.Quantity))
+                            {
+                                add.ShowDialog();
+                                if (add.DialogResult == DialogResult.OK)
+                                {
+                                    item.Quantity = add.Qty;
+                                    CalculateLines();
+                                };
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch { }
+        }
+
+        private void btnVoidTransaction_Click(object sender, EventArgs e)
+        {
+            ClearTransactions();
+        }
+
+        private void PosView_Shown(object sender, EventArgs e)
+        {
+            using (LogIn frm = new LogIn())
+            {
+                while (genericController.GetCurrentUser() == null)
+                {
+                    frm.ShowDialog();
+
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        var user = genericController.GetCurrentUser();
+                        if (user != null)
+                            break;
+                    }
+                }
             }
         }
     }

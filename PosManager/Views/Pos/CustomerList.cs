@@ -5,6 +5,8 @@ using PosLibrary.Model.Entities.Fiscal;
 using PosLibrary.Model.Entities.Items;
 using PosLibrary.Model.Entities.Transactions;
 using PosManager.Controller;
+using PosManager.Views.Customers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -63,12 +65,17 @@ namespace PosManager.Views.Pos
         {
             try
             {
-                customer = _dataController.Get(Id).response as Customer;
-                if (customer != null)
+                if (Id > 0)
                 {
-                    this.DialogResult = DialogResult.OK;
-                    Close();
+                    customer = _dataController.Get(Id).response as Customer;
+                    if (customer != null)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        Close();
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccionar una linea");
             }
             catch { }
         }
@@ -84,6 +91,29 @@ namespace PosManager.Views.Pos
             {
                 btnSearch_Click(null, null);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (CustomerData cust = new CustomerData()) 
+            {
+                cust.ShowDialog();
+            };
+            LoadData();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Id > 0)
+            {
+                using (CustomerData cust = new CustomerData(Id))
+                {
+                    cust.ShowDialog();
+                };
+                LoadData();
+            }
+            else
+                MessageBox.Show("Seleccionar una linea");
         }
     }
 }

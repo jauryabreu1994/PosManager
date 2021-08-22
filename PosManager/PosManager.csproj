@@ -65,11 +65,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pos\DeleteLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\DeleteLine.Designer.cs">
+      <DependentUpon>DeleteLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pos\CustomerList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Pos\CustomerList.Designer.cs">
       <DependentUpon>CustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\AddQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\AddQuantity.Designer.cs">
+      <DependentUpon>AddQuantity.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pos\PaymentAmount.cs">
       <SubType>Form</SubType>
@@ -82,6 +94,12 @@
     </Compile>
     <Compile Include="Views\Pos\NcfList.Designer.cs">
       <DependentUpon>NcfList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\AmountChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\AmountChange.Designer.cs">
+      <DependentUpon>AmountChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pos\PaymentList.cs">
       <SubType>Form</SubType>
@@ -100,6 +118,12 @@
     </Compile>
     <Compile Include="Views\Pos\PosView.Designer.cs">
       <DependentUpon>PosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\SelectItemProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\SelectItemProcess.Designer.cs">
+      <DependentUpon>SelectItemProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectProcess.cs">
       <SubType>Form</SubType>
@@ -205,6 +229,18 @@
     <Compile Include="Views\Stores\StoreData.Designer.cs">
       <DependentUpon>StoreData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Transactions\TransactionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Transactions\TransactionView.Designer.cs">
+      <DependentUpon>TransactionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Transactions\TransactionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Transactions\TransactionList.Designer.cs">
+      <DependentUpon>TransactionList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Users\GroupPermissionData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,14 +282,23 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\DeleteLine.resx">
+      <DependentUpon>DeleteLine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pos\CustomerList.resx">
       <DependentUpon>CustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\AddQuantity.resx">
+      <DependentUpon>AddQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pos\PaymentAmount.resx">
       <DependentUpon>PaymentAmount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pos\NcfList.resx">
       <DependentUpon>NcfList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\AmountChange.resx">
+      <DependentUpon>AmountChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pos\PaymentList.resx">
       <DependentUpon>PaymentList.cs</DependentUpon>
@@ -263,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pos\PosView.resx">
       <DependentUpon>PosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\SelectItemProcess.resx">
+      <DependentUpon>SelectItemProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelectProcess.resx">
       <DependentUpon>SelectProcess.cs</DependentUpon>
@@ -314,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Stores\StoreData.resx">
       <DependentUpon>StoreData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transactions\TransactionView.resx">
+      <DependentUpon>TransactionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transactions\TransactionList.resx">
+      <DependentUpon>TransactionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Users\GroupPermissionData.resx">
       <DependentUpon>GroupPermissionData.cs</DependentUpon>

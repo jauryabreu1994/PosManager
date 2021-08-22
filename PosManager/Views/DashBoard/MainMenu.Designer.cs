@@ -31,6 +31,7 @@ namespace PosManager.Views.DashBoard
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnChancePassword = new System.Windows.Forms.Button();
             this.btnTransactions = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnFiscal = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@ namespace PosManager.Views.DashBoard
             this.btnExit = new System.Windows.Forms.Button();
             this.panelView = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
-            this.btnChancePassword = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
@@ -71,6 +71,22 @@ namespace PosManager.Views.DashBoard
             this.panel1.Size = new System.Drawing.Size(175, 550);
             this.panel1.TabIndex = 0;
             // 
+            // btnChancePassword
+            // 
+            this.btnChancePassword.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnChancePassword.BackColor = System.Drawing.Color.Gray;
+            this.btnChancePassword.FlatAppearance.BorderSize = 0;
+            this.btnChancePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChancePassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChancePassword.ForeColor = System.Drawing.Color.White;
+            this.btnChancePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChancePassword.Image")));
+            this.btnChancePassword.Location = new System.Drawing.Point(135, 507);
+            this.btnChancePassword.Name = "btnChancePassword";
+            this.btnChancePassword.Size = new System.Drawing.Size(40, 43);
+            this.btnChancePassword.TabIndex = 3;
+            this.btnChancePassword.UseVisualStyleBackColor = false;
+            this.btnChancePassword.Click += new System.EventHandler(this.btnChancePassword_Click);
+            // 
             // btnTransactions
             // 
             this.btnTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -86,6 +102,7 @@ namespace PosManager.Views.DashBoard
             this.btnTransactions.TabIndex = 7;
             this.btnTransactions.Text = "Transacciones";
             this.btnTransactions.UseVisualStyleBackColor = false;
+            this.btnTransactions.Click += new System.EventHandler(this.btnTransactions_Click);
             // 
             // btnUser
             // 
@@ -297,22 +314,6 @@ namespace PosManager.Views.DashBoard
             this.btnSetting.TabIndex = 0;
             this.btnSetting.UseVisualStyleBackColor = false;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // btnChancePassword
-            // 
-            this.btnChancePassword.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnChancePassword.BackColor = System.Drawing.Color.Gray;
-            this.btnChancePassword.FlatAppearance.BorderSize = 0;
-            this.btnChancePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChancePassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChancePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChancePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChancePassword.Image")));
-            this.btnChancePassword.Location = new System.Drawing.Point(135, 507);
-            this.btnChancePassword.Name = "btnChancePassword";
-            this.btnChancePassword.Size = new System.Drawing.Size(40, 43);
-            this.btnChancePassword.TabIndex = 3;
-            this.btnChancePassword.UseVisualStyleBackColor = false;
-            this.btnChancePassword.Click += new System.EventHandler(this.btnChancePassword_Click);
             // 
             // MainMenu
             // 

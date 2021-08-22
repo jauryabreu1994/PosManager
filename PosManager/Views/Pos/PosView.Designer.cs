@@ -29,10 +29,10 @@ namespace PosManager.Views.Pos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtItems = new System.Windows.Forms.DataGridView();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.dtPayments = new System.Windows.Forms.DataGridView();
@@ -68,6 +68,7 @@ namespace PosManager.Views.Pos
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPending = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnVoidTransaction = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPayments)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,14 +81,14 @@ namespace PosManager.Views.Pos
             this.dtItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtItems.ColumnHeadersHeight = 30;
             this.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtItems.EnableHeadersVisualStyles = false;
@@ -96,15 +97,17 @@ namespace PosManager.Views.Pos
             this.dtItems.Name = "dtItems";
             this.dtItems.RowHeadersVisible = false;
             this.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dtItems.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dtItems.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtItems.Size = new System.Drawing.Size(602, 300);
             this.dtItems.TabIndex = 13;
+            this.dtItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtItems_CellClick);
+            this.dtItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtItems_CellDoubleClick);
             // 
             // txtCustomer
             // 
@@ -123,14 +126,14 @@ namespace PosManager.Views.Pos
             this.dtPayments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtPayments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtPayments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtPayments.ColumnHeadersHeight = 30;
             this.dtPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtPayments.EnableHeadersVisualStyles = false;
@@ -139,15 +142,17 @@ namespace PosManager.Views.Pos
             this.dtPayments.Name = "dtPayments";
             this.dtPayments.RowHeadersVisible = false;
             this.dtPayments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dtPayments.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dtPayments.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtPayments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtPayments.Size = new System.Drawing.Size(352, 175);
             this.dtPayments.TabIndex = 15;
+            this.dtPayments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtPayments_CellContentClick);
+            this.dtPayments.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtPayments_CellDoubleClick);
             // 
             // panel1
             // 
@@ -384,7 +389,7 @@ namespace PosManager.Views.Pos
             this.btnItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItem.ForeColor = System.Drawing.Color.White;
             this.btnItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnItem.Location = new System.Drawing.Point(619, 329);
+            this.btnItem.Location = new System.Drawing.Point(619, 328);
             this.btnItem.Name = "btnItem";
             this.btnItem.Size = new System.Drawing.Size(282, 44);
             this.btnItem.TabIndex = 32;
@@ -401,7 +406,7 @@ namespace PosManager.Views.Pos
             this.btnCustomer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomer.Location = new System.Drawing.Point(619, 373);
+            this.btnCustomer.Location = new System.Drawing.Point(619, 372);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(282, 44);
             this.btnCustomer.TabIndex = 33;
@@ -418,9 +423,9 @@ namespace PosManager.Views.Pos
             this.btnFiscal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiscal.ForeColor = System.Drawing.Color.White;
             this.btnFiscal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFiscal.Location = new System.Drawing.Point(619, 417);
+            this.btnFiscal.Location = new System.Drawing.Point(619, 416);
             this.btnFiscal.Name = "btnFiscal";
-            this.btnFiscal.Size = new System.Drawing.Size(282, 44);
+            this.btnFiscal.Size = new System.Drawing.Size(141, 44);
             this.btnFiscal.TabIndex = 34;
             this.btnFiscal.Text = "Fiscal (DGII)";
             this.btnFiscal.UseVisualStyleBackColor = false;
@@ -435,9 +440,9 @@ namespace PosManager.Views.Pos
             this.BtnDiscount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDiscount.ForeColor = System.Drawing.Color.White;
             this.BtnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDiscount.Location = new System.Drawing.Point(619, 461);
+            this.BtnDiscount.Location = new System.Drawing.Point(760, 416);
             this.BtnDiscount.Name = "BtnDiscount";
-            this.BtnDiscount.Size = new System.Drawing.Size(282, 44);
+            this.BtnDiscount.Size = new System.Drawing.Size(141, 44);
             this.BtnDiscount.TabIndex = 35;
             this.BtnDiscount.Text = "Descuentos";
             this.BtnDiscount.UseVisualStyleBackColor = false;
@@ -451,7 +456,7 @@ namespace PosManager.Views.Pos
             this.btnPayment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayment.ForeColor = System.Drawing.Color.White;
             this.btnPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPayment.Location = new System.Drawing.Point(619, 505);
+            this.btnPayment.Location = new System.Drawing.Point(619, 504);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(282, 44);
             this.btnPayment.TabIndex = 36;
@@ -630,12 +635,30 @@ namespace PosManager.Views.Pos
             this.label6.Text = "Pendiente:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnVoidTransaction
+            // 
+            this.btnVoidTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoidTransaction.BackColor = System.Drawing.Color.IndianRed;
+            this.btnVoidTransaction.FlatAppearance.BorderSize = 0;
+            this.btnVoidTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoidTransaction.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoidTransaction.ForeColor = System.Drawing.Color.White;
+            this.btnVoidTransaction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoidTransaction.Location = new System.Drawing.Point(619, 460);
+            this.btnVoidTransaction.Name = "btnVoidTransaction";
+            this.btnVoidTransaction.Size = new System.Drawing.Size(282, 44);
+            this.btnVoidTransaction.TabIndex = 50;
+            this.btnVoidTransaction.Text = "Cancelar Transacción";
+            this.btnVoidTransaction.UseVisualStyleBackColor = false;
+            this.btnVoidTransaction.Click += new System.EventHandler(this.btnVoidTransaction_Click);
+            // 
             // PosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(909, 550);
+            this.Controls.Add(this.btnVoidTransaction);
             this.Controls.Add(this.lblPending);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTotal);
@@ -665,6 +688,7 @@ namespace PosManager.Views.Pos
             this.Name = "PosView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Shown += new System.EventHandler(this.PosView_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dtItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPayments)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -711,6 +735,7 @@ namespace PosManager.Views.Pos
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnVoidTransaction;
     }
 }
 

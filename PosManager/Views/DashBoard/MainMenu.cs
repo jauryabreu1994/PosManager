@@ -7,6 +7,7 @@ using PosManager.Views.Fiscals;
 using PosManager.Views.Items;
 using PosManager.Views.Payments;
 using PosManager.Views.Stores;
+using PosManager.Views.Transactions;
 using PosManager.Views.Users;
 using PosManager.Views.Vendors;
 using System.Linq;
@@ -132,6 +133,14 @@ namespace PosManager.Views.DashBoard
             {
                 password.ShowDialog();
             };
+        }
+
+        private void btnTransactions_Click(object sender, System.EventArgs e)
+        {
+            if (!genericController.ValidateAccess(PermissionAlias.Sales))
+                return;
+            this.panelView.Controls.Clear();
+            this.panelView.Controls.Add(new TransactionList());
         }
     }
 }
