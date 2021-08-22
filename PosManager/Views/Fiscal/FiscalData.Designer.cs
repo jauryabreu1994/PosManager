@@ -89,6 +89,7 @@ namespace PosManager.Views.Fiscals
             // txtSerie
             // 
             this.txtSerie.Location = new System.Drawing.Point(117, 82);
+            this.txtSerie.MaxLength = 1;
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(201, 25);
             this.txtSerie.TabIndex = 2;

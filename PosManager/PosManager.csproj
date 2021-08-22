@@ -42,9 +42,8 @@
     <Reference Include="HashLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HashLib.2.0.1\lib\net40\HashLib.dll</HintPath>
     </Reference>
-    <Reference Include="PosLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FinalProject\PosLibrary\bin\Debug\PosLibrary.dll</HintPath>
+    <Reference Include="PosLibrary">
+      <HintPath>..\..\..\..\..\..\repos\PosLibrary\PosLibrary\bin\Debug\PosLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,6 +64,48 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\CustomerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\CustomerList.Designer.cs">
+      <DependentUpon>CustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\PaymentAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\PaymentAmount.Designer.cs">
+      <DependentUpon>PaymentAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\NcfList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\NcfList.Designer.cs">
+      <DependentUpon>NcfList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\PaymentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\PaymentList.Designer.cs">
+      <DependentUpon>PaymentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\ItemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\ItemList.Designer.cs">
+      <DependentUpon>ItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pos\PosView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pos\PosView.Designer.cs">
+      <DependentUpon>PosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SelectProcess.Designer.cs">
+      <DependentUpon>SelectProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Customers\CustomerList.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +245,27 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\CustomerList.resx">
+      <DependentUpon>CustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\PaymentAmount.resx">
+      <DependentUpon>PaymentAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\NcfList.resx">
+      <DependentUpon>NcfList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\PaymentList.resx">
+      <DependentUpon>PaymentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\ItemList.resx">
+      <DependentUpon>ItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pos\PosView.resx">
+      <DependentUpon>PosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SelectProcess.resx">
+      <DependentUpon>SelectProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Customers\CustomerList.resx">
       <DependentUpon>CustomerList.cs</DependentUpon>

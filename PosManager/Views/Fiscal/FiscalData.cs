@@ -86,11 +86,11 @@ namespace PosManager.Views.Fiscals
                 return new GenericController().MessageError("El campo serie no puede estar vacio");
             }
 
-            else if (string.IsNullOrEmpty(txtNcf.Text))
-            {
-                txtSerie.Focus();
-                return new GenericController().MessageError("El campo Tipo Ncf no puede estar vacio");
-            }
+            //else if (string.IsNullOrEmpty(txtNcf.Text))
+            //{
+            //    txtSerie.Focus();
+            //    return new GenericController().MessageError("El campo Tipo Ncf no puede estar vacio");
+            //}
 
             else if (string.IsNullOrEmpty(txtDescription.Text))
             {

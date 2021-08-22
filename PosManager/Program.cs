@@ -13,7 +13,7 @@ namespace PosManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PosManager.Views.DashBoard.MainMenu());
+            Application.Run(new PosManager.Views.SelectProcess());
         }
     }
 }
