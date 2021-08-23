@@ -210,6 +210,7 @@ namespace PosManager.Views.Transactions
             this.btnPrint.Text = "Reimprimir Factura";
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // TransactionList
             // 

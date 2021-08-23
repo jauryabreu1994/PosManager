@@ -1,13 +1,5 @@
-﻿using PosLibrary.Controller.Items;
-using PosLibrary.Controller.Payments;
-using PosLibrary.Model.Entities.Customers;
-using PosLibrary.Model.Entities.Fiscal;
-using PosLibrary.Model.Entities.Items;
+﻿using PosLibrary.Controller.Payments;
 using PosLibrary.Model.Entities.Payments;
-using PosLibrary.Model.Entities.Transactions;
-using PosManager.Controller;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PosManager.Views.Transactions

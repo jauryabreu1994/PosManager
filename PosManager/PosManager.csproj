@@ -417,6 +417,7 @@
     <Content Include="img\city-hall.png" />
     <Content Include="img\coupon.png" />
     <Content Include="img\pay.png" />
+    <Content Include="img\pos_logo.jpg" />
     <Content Include="img\seller.png" />
     <Content Include="img\shop.png" />
     <Content Include="img\special.png" />

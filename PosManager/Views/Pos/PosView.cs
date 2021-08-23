@@ -405,6 +405,11 @@ namespace PosManager.Views.Pos
                     };
 
                     new NcfHistoryController().Save(ncfHistory);
+                    header.Customer = _customer;
+                    header.TransactionLines = new TransactionLinesController().GetList(header.ReceiptId).response as List<TransactionLines>;
+                    header.TransactionPayments = new TransactionPaymentsController().GetList(header.ReceiptId).response as List<TransactionPayments>;
+
+                    new TransactionList(header);
                 }
                 ClearTransactions();
             }
