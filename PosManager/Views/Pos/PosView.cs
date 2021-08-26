@@ -279,7 +279,10 @@ namespace PosManager.Views.Pos
                     MessageBox.Show(response);
 
                     var ncfInformation = new NcfSequenceDetailController().GetNcfStatus(_ncfType.NcfId, 0);
-                    
+
+                    if (ncfInformation == null)
+                        return;
+
                     if (ncfInformation.SeqStatus > 1)
                         return;
                 }
